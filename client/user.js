@@ -108,7 +108,7 @@ const handleImageFile = () => {
       // Save the image data to local storage as a Base64-encoded string
 
       let src = URL.createObjectURL(data);
-      // console.log(src);
+      //  (src);
       let canva = document.createElement("canvas");
       let ctx = canva.getContext("2d");
       let userImage = new Image();
@@ -118,7 +118,7 @@ const handleImageFile = () => {
         canva.height = userImage.height;
         ctx.drawImage(userImage, 0, 0);
         let webpimage = canva.toDataURL("image/webp", 1);
-        console.log(webpimage);
+        webpimage;
         image.src = webpimage;
         cropper = new Cropper(image, {
           aspectRatio: 1,

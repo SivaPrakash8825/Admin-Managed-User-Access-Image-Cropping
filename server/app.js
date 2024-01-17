@@ -17,16 +17,16 @@ app.use(
 async function checkConnection() {
   try {
     await mongoose.connect("mongodb://127.0.0.1:27017/Imagecropping");
-    console.log("Connected");
+    ("Connected");
   } catch (error) {
-    console.log("Not Connected :", error.message);
+    "Not Connected :", error.message;
   }
 }
 checkConnection();
 
 app.post("/check", async (req, res) => {
   const { data } = req.body;
-  console.log(data);
+  data;
   try {
     const val = await adminlog.findOne({ name: data.name, pass: data.pass });
     if (val) {
@@ -35,7 +35,7 @@ app.post("/check", async (req, res) => {
       return res.status(200).send({ msg: "not" });
     }
   } catch (e) {
-    console.log(e);
+    e;
   }
 
   res.send({ msg: "siva" });
@@ -44,5 +44,5 @@ app.post("/check", async (req, res) => {
 app.use("/createId", require("./router/adminlogin"));
 
 app.listen(3030, () => {
-  console.log("listening");
+  ("listening");
 });

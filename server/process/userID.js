@@ -2,7 +2,7 @@ const userId = require("../schema/userId");
 exports.CreateId = async (req, res) => {
   try {
     const { data } = req.body;
-    console.log(data);
+    data;
     const val = await userId.create({ id: data.id, password: data.pass });
     if (val) {
       res.send({ msg: "inserted" });
@@ -10,7 +10,7 @@ exports.CreateId = async (req, res) => {
       res.status(400).send({ msg: "not" });
     }
   } catch (e) {
-    console.log(e);
+    e;
   }
 };
 exports.getData = async (req, res) => {
@@ -22,7 +22,7 @@ exports.getData = async (req, res) => {
       res.status(400).send({ msg: "not" });
     }
   } catch (e) {
-    console.log(e);
+    e;
   }
 };
 exports.getDataById = async (req, res) => {
@@ -37,22 +37,22 @@ exports.getDataById = async (req, res) => {
       res.status(400).send({ msg: "not" });
     }
   } catch (e) {
-    console.log(e);
+    e;
   }
 };
 exports.checkuser = async (req, res) => {
   const { data } = req.body;
-  console.log(data);
+  data;
   try {
     const val = await userId.findOne({ id: data.name, password: data.pass });
-    console.log(val);
+    val;
     if (val) {
       return res.status(200).send({ msg: "exist" });
     } else {
       return res.status(200).send({ msg: "not" });
     }
   } catch (e) {
-    console.log(e);
+    e;
   }
 
   res.send({ msg: "siva" });
@@ -60,7 +60,7 @@ exports.checkuser = async (req, res) => {
 
 exports.updateId = async (req, res) => {
   const { data } = req.body;
-  console.log(data.id);
+  data.id;
   try {
     const val = await userId.findOneAndUpdate(
       {
@@ -68,14 +68,14 @@ exports.updateId = async (req, res) => {
       },
       { name: data.name, image: data.image, action: false }
     );
-    // console.log(val);
+    //  (val);
     if (val) {
       return res.status(200).send({ msg: "updated" });
     } else {
       return res.status(200).send({ msg: "not" });
     }
   } catch (e) {
-    console.log(e);
+    e;
   }
 
   res.send({ msg: "siva" });
@@ -83,19 +83,19 @@ exports.updateId = async (req, res) => {
 
 exports.deleteId = async (req, res) => {
   const { data } = req.body;
-  console.log(data);
+  data;
   try {
     const val = await userId.findOneAndDelete({
       id: data.id,
     });
-    // console.log(val);
+    //  (val);
     if (val) {
       return res.status(200).send({ msg: "deleted" });
     } else {
       return res.status(200).send({ msg: "not" });
     }
   } catch (e) {
-    console.log(e);
+    e;
   }
 
   res.send({ msg: "siva" });
@@ -111,14 +111,14 @@ exports.acceptId = async (req, res) => {
       },
       { action: true }
     );
-    // console.log(val);
+    //  (val);
     if (val) {
       return res.status(200).send({ msg: "deleted" });
     } else {
       return res.status(200).send({ msg: "not" });
     }
   } catch (e) {
-    console.log(e);
+    e;
   }
 
   res.send({ msg: "siva" });
@@ -133,14 +133,14 @@ exports.resetId = async (req, res) => {
       },
       { name: "-", image: "../image/download.png", action: true }
     );
-    // console.log(val);
+    //  (val);
     if (val) {
       return res.status(200).send({ msg: "deleted" });
     } else {
       return res.status(200).send({ msg: "not" });
     }
   } catch (e) {
-    console.log(e);
+    e;
   }
 
   res.send({ msg: "siva" });

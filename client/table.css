@@ -29,7 +29,7 @@ td {
 }
 
 td img {
-  width: 20%;
+  width: auto;
   height: 100%;
 }
 button {
@@ -59,4 +59,31 @@ button {
 #action button:nth-child(1) {
   background-color: blue;
   color: white;
+}
+
+@media (max-width: 900px) {
+  #action {
+    /* border: none; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+
+    align-items: center;
+    /* gap: 10px; */
+  }
+  button {
+    width: 60px;
+    height: 30px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: hsl(240.94deg 100% 50.2%);
+    background-color: transparent;
+    border: 1px solid hsl(240.94deg 100% 50.2%);
+    border-radius: 6px;
+  }
 }
